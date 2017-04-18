@@ -105,13 +105,13 @@ static void ACCELERO_ReadAcc(void)
   
   if((ABS(xval))>(ABS(yval)))
   {
-    if(xval > ThresholdHigh)
+    if(xval > ThresholdHigh) //If x is greater than threshhold
     { 
       /* LED5 On right red*/
       BSP_LED_On(LED5);
       HAL_Delay(10);
     }
-    else if(xval < ThresholdLow)
+    else if(xval < ThresholdLow) //If x is less than threshhold
     { 
       /* LED4 On left green*/
       BSP_LED_On(LED4);      
@@ -124,13 +124,13 @@ static void ACCELERO_ReadAcc(void)
   }
   else
   {
-    if(yval < ThresholdLow)
+    if(yval < ThresholdLow) //If y is less than threshhold
     {
       /* LED6 On below blue*/
       BSP_LED_On(LED6);
       HAL_Delay(10);
     }
-    else if(yval > ThresholdHigh)
+    else if(yval > ThresholdHigh) // If y is greater than threshhold
     {
       /* LED3 On up orange*/
       BSP_LED_On(LED3);
@@ -141,7 +141,7 @@ static void ACCELERO_ReadAcc(void)
       HAL_Delay(10);
     }
   } 
-  
+//Finally turn off all leds  
   BSP_LED_Off(LED3);
   BSP_LED_Off(LED4);
   BSP_LED_Off(LED5);
